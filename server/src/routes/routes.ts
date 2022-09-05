@@ -1,11 +1,11 @@
 import { Router } from "express";
 
-import { getAnimeList, getOneAnime } from "../controllers/controllers";
+import { getAnimeList, getAnimeById } from "../controllers/controllers";
 
 const router: Router = Router();
 
 router.get("/api/anime", getAnimeList)
 
-router.get("/api/anime/:id", getOneAnime)
+router.get("/api/anime/:id", getAnimeById)
 
 export default router;

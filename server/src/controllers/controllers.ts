@@ -3,7 +3,7 @@ import {db} from "../db";
 import { animePageTypes, TypedRequestBody } from "../types/types";
 
 
-const getOneAnime = async(req: Request, res: Response)=> {
+const getAnimeById = async(req: Request, res: Response)=> {
     try {
         const id = String(req.params.id)
         const searchIndex = db.findIndex((page) => page.id === id)
@@ -14,6 +14,7 @@ const getOneAnime = async(req: Request, res: Response)=> {
         throw res.status(404).json({
             message: "not found"
         })
+        console.log("getOneAnime:error");
       }
 }
 
@@ -25,8 +26,9 @@ const getAnimeList = async(req: Request, res: Response)=> {
         throw res.status(404).json({
             message: "not found"
         })
-        // console.log('not getted')
+        console.log("getAnimeList:error");
+        
       };
 }
 
-export {getAnimeList, getOneAnime}
+export {getAnimeList, getAnimeById}
